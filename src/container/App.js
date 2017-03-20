@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import CardList from '../components/CardList/CardList'
+import Buttons from '../components/Buttons/Buttons'
 
 class App extends Component {
   constructor() {
@@ -32,6 +32,7 @@ class App extends Component {
         <p>{ opening_crawl }</p>
         <h3>{ title }</h3>
         <h4>{ release_date }</h4>
+        <Buttons/>
       </div>
     );
   }
