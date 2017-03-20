@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import OpeningHeader from '../components/OpeningHeader/OpeningHeader'
 import Buttons from '../components/Buttons/Buttons'
 
 class App extends Component {
@@ -25,13 +26,10 @@ class App extends Component {
   }
 
   render() {
-    const { opening_crawl, title, release_date } = this.state.openingCrawl
     return (
       <div className="App">
         <h1>SWAPIbox</h1>
-        <p>{ opening_crawl }</p>
-        <h3>{ title }</h3>
-        <h4>{ release_date }</h4>
+        <OpeningHeader { ...this.state.openingCrawl } />
         <Buttons/>
       </div>
     );
