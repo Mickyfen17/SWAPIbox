@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-const PlanetCards = (props) => {
-  return (
-    <div>
-      PlanetCards
-    </div>
-  )
+class PlanetCards extends Component {
+  constructor() {
+    super()
+    this.state = {
+
+    }
+  }
+
+  render(){
+    return (
+      <div>PlanetCards</div>
+    )
+  }
 }
+
 
 export default PlanetCards;
