@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const VehicleCards = (props) => {
-  return (
-    <div>
-      VehicleCards
-    </div>
-  )
+class VehicleCards extends Component {
+  constructor(){
+    super()
+    this.state = {
+
+    }
+  }
+  render() {
+    return (
+      <div>VehicleCards</div>
+    )
+  }
 }
 
 export default VehicleCards;
