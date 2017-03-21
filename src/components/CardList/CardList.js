@@ -3,12 +3,12 @@ import PeopleCards from '../PeopleCards/PeopleCards';
 import VehicleCards from '../VehicleCards/VehicleCards';
 import PlanetCards from '../PlanetCards/PlanetCards';
 
-const CardList = (props) => {
+const CardList = ({ people, vehicles, planets }) => {
   return (
     <div>
-      <PeopleCards people={props.people}/>
-      <PlanetCards planets={props.planets}/>
-      <VehicleCards vehicles={props.vehicles}/>
+      <PeopleCards people={ people } />
+      <VehicleCards vehicles={ vehicles } />
+      <PlanetCards planets={ planets } />
     </div>
   )
 

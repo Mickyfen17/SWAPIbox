@@ -49,12 +49,17 @@ class App extends Component {
   }
 
   render() {
+    const { openingCrawl, people, vehicles, planets } = this.state;
     return (
       <div className="App">
         <h1 className='main-header'>SWAPI-box</h1>
         <Buttons handleClick={ this.handleClick }/>
-        <OpeningHeader { ...this.state.openingCrawl } />
-        <CardList people={this.state.people} vehicles={this.state.vehicles} planets={this.state.planets}/>
+        <OpeningHeader { ...openingCrawl } />
+        <CardList
+          people={ people }
+          vehicles={ vehicles }
+          planets={ planets }
+        />
       </div>
     );
   }
