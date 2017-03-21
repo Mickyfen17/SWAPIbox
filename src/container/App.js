@@ -50,8 +50,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <OpeningHeader { ...this.state.openingCrawl } />
+        <h1 className='main-header'>SWAPI-box</h1>
         <Buttons handleClick={ this.handleClick }/>
+        <OpeningHeader { ...this.state.openingCrawl } />
       </div>
     );
   }
