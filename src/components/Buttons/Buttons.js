@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Buttons = () => {
+const Buttons = ({ handleClick }) => {
   return(
     <div>
-      <button>People</button>
-      <button>Planets</button>
-      <button>Vehicles</button>
+      <button onClick={() => handleClick('people') }>People</button>
+      <button onClick={() => handleClick('planets') }>Planets</button>
+      <button onClick={() => handleClick('vehicles') }>Vehicles</button>
     </div>
   )
 

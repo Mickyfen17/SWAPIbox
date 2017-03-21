@@ -7,8 +7,13 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      openingCrawl: {}
+      openingCrawl: {},
+      people: [],
+      vehicles: [],
+      planets: []
     }
+    this.handleClick = this.handleClick.bind(this),
+    this.baseState = this.state
   }
 
   componentDidMount() {
@@ -25,11 +30,28 @@ class App extends Component {
     })
   }
 
+  handleClick(value) {
+    fetch(`https://swapi.co/api/${value}/`)
+    .then((response) => {
+      return response.json()
+    })
+    .then((json) => {
+      this.resetState()
+      this.setState({
+        [value] : json.results
+      })
+    })
+  }
+
+  resetState() {
+    this.setState(this.baseState)
+  }
+
   render() {
     return (
       <div className="App">
         <OpeningHeader { ...this.state.openingCrawl } />
-        <Buttons/>
+        <Buttons handleClick={ this.handleClick }/>
       </div>
     );
   }
