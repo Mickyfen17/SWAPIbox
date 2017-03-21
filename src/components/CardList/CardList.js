@@ -1,11 +1,11 @@
 import React from 'react';
 
-const CardList = (props) => {
+const CardList = ({ people, vehicles, planets }) => {
   return (
     <div>
-      <PeopleCards people={props.people}/>
-      <VehicleCards vehicles={props.vehicles}/>
-      <PlanetCards planets={props.planets}/>
+      <PeopleCards people={ people } />
+      <VehicleCards vehicles={ vehicles } />
+      <PlanetCards planets={ planets } />
     </div>
   )
 
