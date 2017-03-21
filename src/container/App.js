@@ -28,7 +28,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>SWAPIbox</h1>
         <OpeningHeader { ...this.state.openingCrawl } />
         <Buttons/>
       </div>
