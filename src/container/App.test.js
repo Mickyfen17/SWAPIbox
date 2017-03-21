@@ -5,12 +5,12 @@ import App from './App';
 
 describe('testing App', () => {
 
-  it('renders without crashing', () => {
+  it('should render without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
 
-  it('has a div with a class of App', () => {
+  it('should have a div with a class of App', () => {
     const wrapper = shallow( <App /> )
 
     expect(wrapper.find('.App')).toHaveLength(1)
@@ -19,7 +19,7 @@ describe('testing App', () => {
   it('should have default state values', () => {
     const wrapper = shallow( <App /> )
     const state = wrapper.state();
-    
+
     expect(state.openingCrawl).toEqual({})
     expect(state.people).toEqual([])
     expect(state.vehicles).toEqual([])
