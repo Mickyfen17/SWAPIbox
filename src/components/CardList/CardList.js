@@ -6,9 +6,9 @@ import PlanetCards from '../PlanetCards/PlanetCards';
 const CardList = ({ people, vehicles, planets }) => {
   return (
     <div>
-      <PeopleCards people={ people } />
-      <VehicleCards vehicles={ vehicles } />
-      <PlanetCards planets={ planets } />
+      { people.length !== 0 && <PeopleCards people={ people } /> }
+      { vehicles.length !== 0 && <VehicleCards vehicles={ vehicles } /> }
+      { planets.length !== 0 && <PlanetCards planets={ planets } /> }
     </div>
   )
 
