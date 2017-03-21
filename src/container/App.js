@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import OpeningHeader from '../components/OpeningHeader/OpeningHeader'
 import Buttons from '../components/Buttons/Buttons'
-import CardList from '../componets/CardList/CardList'
+import CardList from '../components/CardList/CardList'
 
 class App extends Component {
   constructor() {
