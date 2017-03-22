@@ -1,8 +1,0 @@
-.vehicle-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  max-width: 1300px;
-  margin: 0 auto;
-  justify-content: center;
-}
