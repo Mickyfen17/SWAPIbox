@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import classNames from 'classnames';
+
 
 class PeopleCards extends Component {
   constructor() {
@@ -6,73 +8,67 @@ class PeopleCards extends Component {
     this.state = {
       fav: false,
       homeworld: '',
-      species: ''
+      species: '',
+      population: ''
     }
 
   }
 
-  // componentDidMount() {
-  //   this.props.people.forEach(person => {
-  //     const { name, homeworld, species } = person
-  //     this.fetchAPI(name, homeworld)
-  //     this.fetchAPI(name, species[0])
-  //   })
-  // }
+  componentWillMount() {
+    this.fetchAPI(this.props.homeworld);
+    this.fetchAPI(this.props.species);
+  }
 
-  // fetchAPI(name, value) {
-  //   fetch(value)
-  //   .then((response) => {
-  //     return response.json()
-  //   })
-  //   .then((json) => {
-  //     this.settingState(name, json)
-  //   })
-  // }
-  //
-  // settingState(name, json) {
-  //   let data = this.state.allPeople
-  //   if(!data[name]) data[name] = {}
-  //
-  //   if(!json.gravity) {
-  //     data[name].species = json.name
-  //   } else {
-  //     data[name].world = json.name
-  //     data[name].population = json.population
-  //   }
-  //   this.setState({
-  //     allPeople: data
-  //   })
-  // }
-  //
-  // renderPeopleCard(){
-  //   // console.log(this.state.allPeople);
-  //   return Object.keys(this.state.allPeople).map((person, i) => {
-  //     console.log(this.state.allPeople[person]);
-  //     return(
-  //       <article>
-  //         {person}
-  //         <li>{this.state.allPeople[person].species}</li>
-  //         <li>{this.state.allPeople[person].world} : {this.state.allPeople[person].population}</li>
-  //       </article>
-  //     )
-  //   })
-  // }
+  fetchAPI(value) {
+    fetch(value)
+    .then((response) => {
+      return response.json()
+    })
+    .then((json) => {
+      this.settingState(json)
+    })
+  }
+
+  settingState(json) {
+    if(json.gravity) {
+      this.setState({ homeworld: json.name, population: json.population })
+    } else {
+      this.setState({ species: json.name })
+    }
+  }
 
   render() {
-    // const test = this.state.person.map((person) => {
-    //   return(
-    //     <article>
-    //       {person.name}
-    //       <li>{person.species}</li>
-    //       <li>{person.world} : {person.worldPopulation}</li>
-    //     </article>
-    //   )
-    // })
+
+    this.cardFavorite = classNames({
+      'card-favorite' : this.state.fav,
+      'display-card' : true
+    }),
+    this.btnFavorite = classNames({
+      'btn-favorite' : this.state.fav,
+      'fav-button' : true
+    })
+
+    const { name } = this.props
+    const { homeworld, population, species } = this.state
     return (
-      <div>
-        HELLO
-      </div>
-    )
+      <article className={ this.cardFavorite }>
+        <h2 className='display-card-header' >{ name }
+          <button
+            onClick={ () => this.setState({ fav: !this.state.fav }) }
+            className={ this.btnFavorite }>
+          </button>
+        </h2>
+        <h4 className='display-card-text first-header' >
+          <span>Homeworld :</span> { homeworld }
+        </h4>
+        <h4 className='display-card-text' >
+          <span>Species :</span> { species }
+        </h4>
+        <h4 className='display-card-text' >
+          <span>Population :</span> { population }
+        </h4>
+      </article>
+    );
   }
 }
 
