@@ -11,14 +11,14 @@ const VehicleCards = ({ vehicles }) => {
         <h2 className='display-card-header' >{ name }
           <button className='fav-button'></button>
         </h2>
-        <h4 className='display-card-text' ><span>Model :</span> { model }</h4>
+        <h4 className='display-card-text first-header' ><span>Model :</span> { model }</h4>
         <h4 className='display-card-text' ><span>Class :</span> { vehicle_class }</h4>
         <h4 className='display-card-text' ><span>Passengers :</span> { passengers }</h4>
       </article>
     )
   })
   return (
-    <div>
+    <div className='vehicle-wrapper'>
       { vehicleList }
     </div>
   )
