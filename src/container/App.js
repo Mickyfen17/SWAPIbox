@@ -9,12 +9,10 @@ class App extends Component {
     super()
     this.state = {
       openingCrawl: {},
-      people: [],
-      vehicles: [],
-      planets: []
+      selectedContent: [],
+      catergory: ''
     }
-    this.handleClick = this.handleClick.bind(this),
-    this.baseState = this.state
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -37,28 +35,24 @@ class App extends Component {
       return response.json()
     })
     .then((json) => {
-      this.resetState()
       this.setState({
-        [value] : json.results
+        openingCrawl: {},
+        selectedContent : json.results,
+        catergory : value
       })
     })
   }
 
-  resetState() {
-    this.setState(this.baseState)
-  }
-
   render() {
-    const { openingCrawl, people, vehicles, planets } = this.state;
+    const { openingCrawl, selectedContent, catergory } = this.state;
     return (
       <div className="App">
         <h1 className='main-header'>SWAPI-box</h1>
         <Buttons handleClick={ this.handleClick }/>
         <OpeningHeader { ...openingCrawl } />
         <CardList
-          people={ people }
-          vehicles={ vehicles }
-          planets={ planets }
+          selectedContent={ selectedContent }
+          value={ catergory }
         />
       </div>
     );
