@@ -1,0 +1,52 @@
+.display-card {
+  width: 90%;
+  margin: 15px auto;
+  border: 2px solid #5468B1;
+  text-align: center;
+  border-radius: 5px;
+  background: #E5E5EC;
+}
+
+.display-card-header {
+  position: relative;
+  margin: 0;
+  padding: 30px 0 30px 12px;
+  border-bottom: 8px solid #767682;
+  background: #00236D;
+  color: #00236D;
+  font-size: 0.9em;
+  font-family: 'Poller One', cursive;
+  text-align: left;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+}
+
+.display-card-text {
+  margin: 30px 0;
+  font-size: 1.2em;
+  color: #767682;
+  text-transform: capitalize;
+}
+
+.display-card-text span {
+  color: #5468B1;
+}
+
+.fav-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  height: 50px;
+  width: 50px;
+  background: #E5E5EC url(images/light_saber_green.svg) no-repeat 8px 8px / 30px;
+  border: 2px solid #767682;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.fav-button:hover,
+.fav-button:focus {
+  background: #E5E5EC url(images/light_saber_red.svg) no-repeat 8px 8px / 30px;
+
+}
