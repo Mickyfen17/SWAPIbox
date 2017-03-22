@@ -1,8 +1,14 @@
+.buttons-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .filter-buttons {
   display: flex;
   justify-content: center;
   width: 90%;
   height: 30px;
+  max-width: 300px;
   margin: 14px auto;
   border: 2px solid #f2d83f;
   background: transparent;
@@ -15,4 +21,15 @@
 .filter-buttons:hover {
   background: #f2d83f;
   color: black;
+}
+
+@media screen and (min-width: 550px) {
+  .buttons-wrapper {
+    text-align: center;
+  }
+  .filter-buttons {
+    display: inline-block;
+    width: 30%;
+    margin: 5px;
+  }
 }
