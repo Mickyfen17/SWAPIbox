@@ -1,9 +1,39 @@
 import React from 'react';
+import PeopleCards from '../PeopleCards/PeopleCards';
+import VehicleCards from '../VehicleCards/VehicleCards';
+import PlanetCards from '../PlanetCards/PlanetCards';
 
 const Favorites = ({ favorites }) => {
-  console.log(favorites);
+  if(favorites.length === 0) {
+    return(
+      <h1>No Favorites Selected</h1>
+    )
+  }
+
+  const displayFavorites = () => {
+    return favorites.map((value, i) => {
+      if (value.birth_year) {
+        return(
+          <PeopleCards { ...value } />
+        )
+      }
+      if (value.gravity) {
+        return (
+          <PlanetCards { ...value } />
+        )
+      }
+      if (value.cargo_capacity) {
+        return (
+          <VehicleCards { ...value } />
+        )
+      }
+    })
+  }
+
   return(
-    <h1>HELLO</h1>
+    <div className='card-wrapper' >
+      { displayFavorites() }
+    </div>
   )
 }
 
