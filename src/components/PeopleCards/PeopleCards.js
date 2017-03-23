@@ -48,13 +48,14 @@ class PeopleCards extends Component {
       'fav-button' : true
     })
 
-    const { name } = this.props
+    const { name, handleFavorites } = this.props
     const { homeworld, population, species } = this.state
     return (
       <article className={ this.cardFavorite }>
         <h2 className='display-card-header' >{ name }
           <button
-            onClick={ () => this.setState({ fav: !this.state.fav }) }
+            onClick={ () => {this.setState({ fav: !this.state.fav });
+                        handleFavorites(name, this.state.fav) } }
             className={ this.btnFavorite }>
           </button>
         </h2>
