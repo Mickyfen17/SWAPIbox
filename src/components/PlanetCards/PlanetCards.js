@@ -14,7 +14,6 @@ class PlanetCards extends Component {
   componentWillMount(){
     if(this.props.residents.length === 0){
       return
-
     }
     this.props.residents.forEach(resident => {
       this.fetchAPI(resident)
@@ -35,7 +34,6 @@ class PlanetCards extends Component {
     this.setState({ residents: this.state.residents.concat(json.name) })
   }
 
-
   render() {
 
     this.cardFavorite = classNames({
@@ -46,12 +44,25 @@ class PlanetCards extends Component {
       'btn-favorite' : this.state.fav,
       'fav-button' : true
     })
+    this.cardFavoriteFirst = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true,
+      'first' : true
+    })
+    this.textFavorite = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true
+    })
+    this.textResident = classNames({
+      'text-resedent-favorite' : this.state.fav,
+      'resident-card-text' : true
+    })
 
     const { name, terrain , population, climate, handleFavorites } = this.props
     const { residents, fav } = this.state
-    const residentList = residents.map(resident => {
+    const residentList = residents.map((resident, i) => {
       return (
-          <h4 className='resident-card-text'>{resident}</h4>
+          <h5 key={i} className={ this.textResident }>{ resident }</h5>
       )
     })
     return (
@@ -63,23 +74,22 @@ class PlanetCards extends Component {
             className={ this.btnFavorite }>
           </button>
         </h2>
-        <h4 className='display-card-text first-header' >
+        <h4 className={ this.cardFavoriteFirst } >
           <span>Terrain :</span> { terrain }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
           <span>Population :</span> { population }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
           <span>Climate :</span> { climate }
         </h4>
         <div className='resident-wrapper'>
-          <h4>Residents</h4>
-          {residentList}
+          <h4>Residents : </h4>
+          { residentList }
         </div>
       </article>
     );
   }
 }
-
 
 export default PlanetCards;

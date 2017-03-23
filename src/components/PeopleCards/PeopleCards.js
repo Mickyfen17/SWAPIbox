@@ -9,9 +9,9 @@ class PeopleCards extends Component {
       fav: false,
       homeworld: '',
       species: '',
+      language: '',
       population: ''
     }
-
   }
 
   componentWillMount() {
@@ -33,7 +33,7 @@ class PeopleCards extends Component {
     if(json.gravity) {
       this.setState({ homeworld: json.name, population: json.population })
     } else {
-      this.setState({ species: json.name })
+      this.setState({ species: json.name, language: json.language })
     }
   }
 
@@ -47,9 +47,18 @@ class PeopleCards extends Component {
       'btn-favorite' : this.state.fav,
       'fav-button' : true
     })
+    this.cardFavoriteFirst = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true,
+      'first' : true
+    })
+    this.textFavorite = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true
+    })
 
     const { name, handleFavorites } = this.props
-    const { homeworld, population, species, fav } = this.state
+    const { homeworld, population, species, language, fav } = this.state
     return (
       <article className={ this.cardFavorite }>
         <h2 className='display-card-header' >{ name }
@@ -59,13 +68,16 @@ class PeopleCards extends Component {
             className={ this.btnFavorite }>
           </button>
         </h2>
-        <h4 className='display-card-text first-header' >
+        <h4 className={ this.cardFavoriteFirst } >
           <span>Homeworld :</span> { homeworld }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
           <span>Species :</span> { species }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
+          <span>Language :</span> { language }
+        </h4>
+        <h4 className={ this.textFavorite } >
           <span>Population :</span> { population }
         </h4>
       </article>
