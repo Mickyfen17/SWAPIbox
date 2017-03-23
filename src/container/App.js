@@ -83,9 +83,10 @@ class App extends Component {
     const { openingCrawl, selectedContent, catergory, favorites, toggleFavs } = this.state;
     return (
       <div className="App">
-        <button onClick={ () => this.renderFavorites() }>
+        <button className='favorite-btn'
+          onClick={ () => this.renderFavorites() }>
           Favorites
-          <span>{ favorites.length }</span>
+          <span> { favorites.length } </span>
         </button>
         <h1 className='main-header'>SWAPI-box</h1>
         <Buttons handleClick={ this.handleClick } />
