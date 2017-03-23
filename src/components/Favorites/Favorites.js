@@ -2,11 +2,12 @@ import React from 'react';
 import PeopleCards from '../PeopleCards/PeopleCards';
 import VehicleCards from '../VehicleCards/VehicleCards';
 import PlanetCards from '../PlanetCards/PlanetCards';
+import './Favorites.css';
 
 const Favorites = ({ favorites }) => {
   if(favorites.length === 0) {
     return(
-      <h1>No Favorites Selected</h1>
+      <h1 className='no-fav-header'>No Favorites Selected</h1>
     )
   }
 
