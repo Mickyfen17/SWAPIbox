@@ -47,8 +47,8 @@ class PlanetCards extends Component {
       'fav-button' : true
     })
 
-    const { name, terrain , population, climate } = this.props
-    const { residents } = this.state
+    const { name, terrain , population, climate, handleFavorites } = this.props
+    const { residents, fav } = this.state
     const residentList = residents.map(resident => {
       return (
           <h4 className='resident-card-text'>{resident}</h4>
@@ -58,7 +58,8 @@ class PlanetCards extends Component {
       <article className={ this.cardFavorite }>
         <h2 className='display-card-header' >{ name }
           <button
-            onClick={ () => this.setState({ fav: !this.state.fav }) }
+            onClick={ () => {this.setState({ fav: !fav });
+                        handleFavorites(name, fav) } }
             className={ this.btnFavorite }>
           </button>
         </h2>

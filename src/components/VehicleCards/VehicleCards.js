@@ -22,12 +22,14 @@ class VehicleCards extends Component {
       'fav-button' : true
     })
 
-    const { name, model, vehicle_class, passengers } = this.props.eachVehicle
+    const { name, model, vehicle_class, passengers, handleFavorites } = this.props
+    const { fav } = this.state
     return (
       <article className={ this.cardFavorite }>
         <h2 className='display-card-header' >{ name }
           <button
-            onClick={ () => this.setState({ fav: !this.state.fav }) }
+            onClick={ () => {this.setState({ fav: !fav });
+                        handleFavorites(name, fav) } }
             className={ this.btnFavorite }>
           </button>
         </h2>
