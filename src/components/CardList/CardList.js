@@ -5,7 +5,7 @@ import PlanetCards from '../PlanetCards/PlanetCards';
 import './CardList.css';
 
 
-const CardList = ({ selectedContent, value }) => {
+const CardList = ({ selectedContent, value, handleFavorites }) => {
 
   const renderVehicle = (content) => {
     return content.map((vehicle, i) => {
@@ -20,7 +20,8 @@ const CardList = ({ selectedContent, value }) => {
         <PeopleCards name={person.name}
                 homeworld={person.homeworld}
                 key={i}
-                species={person.species}/>
+                species={person.species}
+                handleFavorites={handleFavorites}/>
       )
     })
   }

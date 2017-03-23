@@ -10,9 +10,11 @@ class App extends Component {
     this.state = {
       openingCrawl: {},
       selectedContent: [],
-      catergory: ''
+      catergory: '',
+      favorites: []
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleFavorites= this.handleFavorites.bind(this)
   }
 
   componentDidMount() {
@@ -43,6 +45,30 @@ class App extends Component {
     })
   }
 
+  handleFavorites(index, status){
+    console.log(index, status);
+    if(!status){
+      this.addFavorite(index);
+    } else {
+      this.removeFavorite(index);
+    }
+  }
+
+  addFavorite(index){
+    const favorites = this.state.selectedContent.filter(value => {
+      return value.name === index;
+    })
+    this.setState({ favorites: this.state.favorites.concat(favorites) })
+
+  }
+
+  removeFavorite(index){
+    const favorites = this.state.favorites.filter(value => {
+      return value.name !== index;
+    })
+    this.setState({ favorites: favorites})
+  }
+
   render() {
     const { openingCrawl, selectedContent, catergory } = this.state;
     return (
@@ -53,7 +79,7 @@ class App extends Component {
         <CardList
           selectedContent={ selectedContent }
           value={ catergory }
-        />
+          handleFavorites={this.handleFavorites}/>
       </div>
     );
   }
