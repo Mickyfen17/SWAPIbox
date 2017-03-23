@@ -41,14 +41,16 @@ class App extends Component {
     .then((json) => {
       this.setState({
         openingCrawl: {},
-        selectedContent : json.results,
-        catergory : value
+        selectedContent: json.results,
+        catergory: value,
+        toggleFavs: false
       })
     })
   }
 
   handleFavorites(index, status){
-    if(!status){
+    const inFavorites = this.state.favorites.some(value => value.name === index)
+    if(!status && !inFavorites){
       this.addFavorite(index);
     } else {
       this.removeFavorite(index);
@@ -91,11 +93,12 @@ class App extends Component {
         { toggleFavs ?
           <Favorites
             favorites={ this.state.favorites }
+            handleFavorites={ this.handleFavorites }
           /> :
           <CardList
             selectedContent={ selectedContent }
             value={ catergory }
-            handleFavorites={this.handleFavorites}
+            handleFavorites={ this.handleFavorites }
           /> }
       </div>
     );

@@ -4,7 +4,7 @@ import VehicleCards from '../VehicleCards/VehicleCards';
 import PlanetCards from '../PlanetCards/PlanetCards';
 import './Favorites.css';
 
-const Favorites = ({ favorites }) => {
+const Favorites = ({ favorites, handleFavorites }) => {
   if(favorites.length === 0) {
     return(
       <h1 className='no-fav-header'>No Favorites Selected</h1>
@@ -15,17 +15,28 @@ const Favorites = ({ favorites }) => {
     return favorites.map((value, i) => {
       if (value.birth_year) {
         return(
-          <PeopleCards key={i} { ...value } />
+          <PeopleCards
+            key={i} { ...value }
+            handleFavorites={ handleFavorites }
+            fav={ true }/>
         )
       }
       if (value.gravity) {
         return (
-          <PlanetCards key={i} { ...value } />
+          <PlanetCards
+            key={i} { ...value }
+            handleFavorites={ handleFavorites }
+            fav={ true }
+          />
         )
       }
       if (value.cargo_capacity) {
         return (
-          <VehicleCards key={i} { ...value } />
+          <VehicleCards
+            key={i} { ...value }
+            handleFavorites={ handleFavorites }
+            fav={ true }
+          />
         )
       }
     })

@@ -37,7 +37,7 @@ class PlanetCards extends Component {
   render() {
 
     this.cardFavorite = classNames({
-      'card-favorite' : this.state.fav,
+      'card-favorite' : this.state.fav || this.props.fav,
       'display-card' : true
     }),
     this.btnFavorite = classNames({
@@ -45,16 +45,16 @@ class PlanetCards extends Component {
       'fav-button' : true
     })
     this.cardFavoriteFirst = classNames({
-      'text-favorite' : this.state.fav,
+      'text-favorite' : this.state.fav || this.props.fav,
       'display-card-text' : true,
       'first' : true
     })
     this.textFavorite = classNames({
-      'text-favorite' : this.state.fav,
+      'text-favorite' : this.state.fav || this.props.fav,
       'display-card-text' : true
     })
     this.textResident = classNames({
-      'text-resedent-favorite' : this.state.fav,
+      'text-resedent-favorite' : this.state.fav || this.props.fav,
       'resident-card-text' : true
     })
 
