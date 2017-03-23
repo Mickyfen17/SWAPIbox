@@ -98,6 +98,10 @@
 .card-favorite {
   background: #5468B1;
 }
+.text-favorite,
+.text-resedent-favorite {
+  color: #FFF;
+}
 .btn-favorite {
   background: #E5E5EC url(images/light_saber_red.svg) no-repeat 8px 8px / 30px;
 }

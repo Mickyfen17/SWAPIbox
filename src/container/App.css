@@ -6,7 +6,6 @@
   background: #191919;
   font-family: 'Source Sans Pro', sans-serif;
   padding-bottom: 20px;
-  color: #FFF;
 }
 
 .main-header {
@@ -15,5 +14,6 @@
   font-family: 'Poller One', cursive;
   font-size: 2.5em;
   text-align: center;
+  color: #191919;
   text-shadow: -1px -1px 0 #f2d83f, 1px -1px 0 #f2d83f, -1px 1px 0 #f2d83f, 1px 1px 0 #f2d83f;
 }

@@ -47,6 +47,15 @@ class PeopleCards extends Component {
       'btn-favorite' : this.state.fav,
       'fav-button' : true
     })
+    this.cardFavoriteFirst = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true,
+      'first' : true
+    })
+    this.textFavorite = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true
+    })
 
     const { name, handleFavorites } = this.props
     const { homeworld, population, species, fav } = this.state
@@ -59,13 +68,13 @@ class PeopleCards extends Component {
             className={ this.btnFavorite }>
           </button>
         </h2>
-        <h4 className='display-card-text first-header' >
+        <h4 className={ this.cardFavoriteFirst } >
           <span>Homeworld :</span> { homeworld }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
           <span>Species :</span> { species }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
           <span>Population :</span> { population }
         </h4>
       </article>

@@ -46,12 +46,25 @@ class PlanetCards extends Component {
       'btn-favorite' : this.state.fav,
       'fav-button' : true
     })
+    this.cardFavoriteFirst = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true,
+      'first' : true
+    })
+    this.textFavorite = classNames({
+      'text-favorite' : this.state.fav,
+      'display-card-text' : true
+    })
+    this.textResident = classNames({
+      'text-resedent-favorite' : this.state.fav,
+      'resident-card-text' : true
+    })
 
     const { name, terrain , population, climate, handleFavorites } = this.props
     const { residents, fav } = this.state
     const residentList = residents.map(resident => {
       return (
-          <h5 className='resident-card-text'>{ resident }</h5>
+          <h5 className={ this.textResident }>{ resident }</h5>
       )
     })
     return (
@@ -63,13 +76,13 @@ class PlanetCards extends Component {
             className={ this.btnFavorite }>
           </button>
         </h2>
-        <h4 className='display-card-text first-header' >
+        <h4 className={ this.cardFavoriteFirst } >
           <span>Terrain :</span> { terrain }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
           <span>Population :</span> { population }
         </h4>
-        <h4 className='display-card-text' >
+        <h4 className={ this.textFavorite } >
           <span>Climate :</span> { climate }
         </h4>
         <div className='resident-wrapper'>
