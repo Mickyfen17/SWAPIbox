@@ -12,7 +12,6 @@ class PeopleCards extends Component {
       language: '',
       population: ''
     }
-
   }
 
   componentWillMount() {

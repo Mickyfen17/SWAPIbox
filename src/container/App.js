@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import OpeningHeader from '../components/OpeningHeader/OpeningHeader'
 import Buttons from '../components/Buttons/Buttons'
 import CardList from '../components/CardList/CardList'
 import Favorites from '../components/Favorites/Favorites'
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -48,7 +48,6 @@ class App extends Component {
   }
 
   handleFavorites(index, status){
-    console.log(index, status);
     if(!status){
       this.addFavorite(index);
     } else {
@@ -61,7 +60,6 @@ class App extends Component {
       return value.name === index;
     })
     this.setState({ favorites: this.state.favorites.concat(favorites) })
-
   }
 
   removeFavorite(index){
@@ -72,7 +70,6 @@ class App extends Component {
   }
 
   renderFavorites() {
-    console.log('favorites');
     this.setState({
       toggleFavs: !this.state.toggleFavs,
       openingCrawl: {}

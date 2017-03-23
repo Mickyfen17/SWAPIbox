@@ -14,7 +14,6 @@ class PlanetCards extends Component {
   componentWillMount(){
     if(this.props.residents.length === 0){
       return
-
     }
     this.props.residents.forEach(resident => {
       this.fetchAPI(resident)
@@ -34,7 +33,6 @@ class PlanetCards extends Component {
   settingState(json) {
     this.setState({ residents: this.state.residents.concat(json.name) })
   }
-
 
   render() {
 
@@ -93,6 +91,5 @@ class PlanetCards extends Component {
     );
   }
 }
-
 
 export default PlanetCards;

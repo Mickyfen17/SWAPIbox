@@ -24,9 +24,9 @@
 
 .favorite-btn {
   position: absolute;
-  right: 4px;
+  right: 8px;
   height: 30px;
-  margin: 14px auto;
+  margin: 5px auto;
   padding-left: 30px;
   background: transparent;
   color: #f2d83f;
