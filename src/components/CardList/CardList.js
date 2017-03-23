@@ -24,19 +24,32 @@ const CardList = ({ selectedContent, value }) => {
       )
     })
   }
+  const renderPlanet = (content) => {
+    return content.map((planet, i) => {
+      return (
+        <PlanetCards name={planet.name}
+                terrain={planet.terrain}
+                key={i}
+                population={planet.population}
+                climate={planet.climate}
+                residents={planet.residents}/>
+      )
+    })
+  }
 
   const getCards = (content, name) => {
+
     if (name === 'vehicles') {
       return renderVehicle(content)
     }
+
     if (name === 'people') {
       return renderPeople(content)
     }
-    //
-    //
-    // if (value === 'planets') {
-    //   renderPlanet(selectedContent)
-    // }
+
+    if (name === 'planets') {
+      return renderPlanet(content)
+    }
   }
 
 
