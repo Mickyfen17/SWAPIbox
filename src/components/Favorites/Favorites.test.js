@@ -6,7 +6,10 @@ describe('testing Favorites', () => {
 
   it('should accept a property of favorites which is an array', () => {
     const wrapper = mount(
-      <Favorites favorites={ [] } />
+      <Favorites
+        favorites={ [] }
+        handleFavorites={ () => {} }
+      />
     )
 
     expect(wrapper.props().favorites).toEqual([])
