@@ -14,27 +14,45 @@ const CardList = ({ selectedContent, value }) => {
       )
     })
   }
+  const renderPeople = (content) => {
+    return content.map((person, i) => {
+      return (
+        <PeopleCards name={person.name}
+                homeworld={person.homeworld}
+                key={i}
+                species={person.species}/>
+      )
+    })
+  }
+  const renderPlanet = (content) => {
+    return content.map((planet, i) => {
+      return (
+        <PlanetCards name={planet.name}
+                terrain={planet.terrain}
+                key={i}
+                population={planet.population}
+                climate={planet.climate}
+                residents={planet.residents}/>
+      )
+    })
+  }
 
   const getCards = (content, name) => {
+
     if (name === 'vehicles') {
       return renderVehicle(content)
     }
-    // if (value === 'people') {
-    //   renderPeople(selectedContent)
-    // }
-    //
-    //
-    // if (value === 'planets') {
-    //   renderPlanet(selectedContent)
-    // }
+
+    if (name === 'people') {
+      return renderPeople(content)
+    }
+
+    if (name === 'planets') {
+      return renderPlanet(content)
+    }
   }
 
 
-  // const renderPeople = (content) => {
-  //   return content.map(person => {
-  //     return <Person name={person.name} homeworld={person.homeworld}/>
-  //   })
-  // }
 
   // const settingState = (name, json) => {
   //   let data = {}

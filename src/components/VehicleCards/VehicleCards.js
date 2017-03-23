@@ -10,7 +10,7 @@ class VehicleCards extends Component {
       fav: false
     }
   }
-  
+
   render() {
 
     this.cardFavorite = classNames({
