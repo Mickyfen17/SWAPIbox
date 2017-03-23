@@ -62,9 +62,9 @@ class PlanetCards extends Component {
 
     const { name, terrain , population, climate, handleFavorites } = this.props
     const { residents, fav } = this.state
-    const residentList = residents.map(resident => {
+    const residentList = residents.map((resident, i) => {
       return (
-          <h5 className={ this.textResident }>{ resident }</h5>
+          <h5 key={i} className={ this.textResident }>{ resident }</h5>
       )
     })
     return (
