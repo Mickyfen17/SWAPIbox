@@ -56,4 +56,12 @@ class VehicleCards extends Component {
   }
 }
 
+VehicleCards.propTypes = {
+  name: React.PropTypes.string,
+  model: React.PropTypes.string,
+  vehicle_class: React.PropTypes.string,
+  passengers: React.PropTypes.string,
+  handleFavorites: React.PropTypes.func.isRequired
+};
+
 export default VehicleCards;
