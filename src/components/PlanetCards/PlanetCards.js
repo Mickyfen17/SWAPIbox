@@ -51,7 +51,7 @@ class PlanetCards extends Component {
     const { residents, fav } = this.state
     const residentList = residents.map(resident => {
       return (
-          <h4 className='resident-card-text'>{resident}</h4>
+          <h5 className='resident-card-text'>{ resident }</h5>
       )
     })
     return (
@@ -73,8 +73,8 @@ class PlanetCards extends Component {
           <span>Climate :</span> { climate }
         </h4>
         <div className='resident-wrapper'>
-          <h4>Residents</h4>
-          {residentList}
+          <h4>Residents : </h4>
+          { residentList }
         </div>
       </article>
     );
