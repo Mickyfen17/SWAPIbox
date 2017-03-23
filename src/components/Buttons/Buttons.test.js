@@ -22,9 +22,13 @@ describe('testing Buttons', () => {
 
     const wrapper = mount( <Buttons handleClick={ handleClick }/> );
     const BtnOne = wrapper.find('.filter-buttons').first();
+    const BtnTwo = wrapper.find('.filter-buttons').at(1)
+    const BtnThree = wrapper.find('.filter-buttons').last()
     BtnOne.simulate('click');
+    BtnTwo.simulate('click');
+    BtnThree.simulate('click');
 
-    expect(handleClick.mock.calls.length).toBe(1);
+    expect(handleClick.mock.calls.length).toBe(3);
   });
 });
 
