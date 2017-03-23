@@ -20,4 +20,8 @@ const Buttons = ({ handleClick }) => {
   )
 }
 
+Buttons.propTypes = {
+  handleClick: React.PropTypes.func.isRequired
+};
+
 export default Buttons;
