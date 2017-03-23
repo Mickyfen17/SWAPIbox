@@ -14,20 +14,20 @@ class VehicleCards extends Component {
   render() {
 
     this.cardFavorite = classNames({
-      'card-favorite' : this.state.fav,
+      'card-favorite' : this.state.fav || this.props.fav,
       'display-card' : true
     }),
     this.btnFavorite = classNames({
-      'btn-favorite' : this.state.fav,
+      'btn-favorite' : this.state.fav || this.props.fav,
       'fav-button' : true
     })
     this.cardFavoriteFirst = classNames({
-      'text-favorite' : this.state.fav,
+      'text-favorite' : this.state.fav || this.props.fav,
       'display-card-text' : true,
       'first' : true
     })
     this.textFavorite = classNames({
-      'text-favorite' : this.state.fav,
+      'text-favorite' : this.state.fav || this.props.fav,
       'display-card-text' : true
     })
 

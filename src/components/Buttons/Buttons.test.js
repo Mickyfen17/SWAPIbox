@@ -8,11 +8,11 @@ describe('testing Buttons', () => {
 
   it('renders without crashing', () => {
    const div = document.createElement('div');
-   ReactDOM.render(<Buttons />, div);
+   ReactDOM.render(<Buttons handleClick={ ()=> {} } />, div);
  });
 
   it('should contain three buttons', () => {
-    const wrapper = shallow( <Buttons /> )
+    const wrapper = shallow( <Buttons handleClick={ () => {} } />)
 
     expect(wrapper.find('button')).toHaveLength(3)
   });
