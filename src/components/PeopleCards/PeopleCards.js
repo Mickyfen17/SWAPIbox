@@ -85,4 +85,9 @@ class PeopleCards extends Component {
   }
 }
 
+PeopleCards.propTypes = {
+  homeworld: React.PropTypes.string.isRequired,
+  species: React.PropTypes.arrayOf(React.PropTypes.string)
+};
+
 export default PeopleCards;
