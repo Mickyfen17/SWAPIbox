@@ -2,7 +2,7 @@ import React from 'react';
 import './OpeningHeader.css';
 
 const OpeningHeader = ({ opening_crawl, title, release_date }) => {
-  
+
   return(
     <section className='opening-header'>
       <div>
@@ -13,5 +13,11 @@ const OpeningHeader = ({ opening_crawl, title, release_date }) => {
     </section>
   )
 }
+
+OpeningHeader.propTypes = {
+  opening_crawl: React.PropTypes.string,
+  title: React.PropTypes.string,
+  release_date: React.PropTypes.string
+};
 
 export default OpeningHeader;
