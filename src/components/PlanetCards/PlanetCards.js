@@ -92,4 +92,13 @@ class PlanetCards extends Component {
   }
 }
 
+PlanetCards.propTypes = {
+  name: React.PropTypes.string,
+  terrain: React.PropTypes.string,
+  population: React.PropTypes.string,
+  climate: React.PropTypes.string,
+  residents: React.PropTypes.arrayOf(React.PropTypes.string),
+  handleFavorites: React.PropTypes.func.isRequired
+};
+
 export default PlanetCards;
