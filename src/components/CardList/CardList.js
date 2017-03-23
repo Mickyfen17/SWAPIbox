@@ -54,4 +54,10 @@ const CardList = ({ selectedContent, value, handleFavorites }) => {
   )
 }
 
+CardList.propTypes = {
+  handleFavorites: React.PropTypes.func.isRequired,
+  selectedContent: React.PropTypes.arrayOf(React.PropTypes.object),
+  value: React.PropTypes.string.isRequired
+};
+
 export default CardList;
