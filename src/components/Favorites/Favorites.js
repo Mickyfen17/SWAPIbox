@@ -15,17 +15,17 @@ const Favorites = ({ favorites }) => {
     return favorites.map((value, i) => {
       if (value.birth_year) {
         return(
-          <PeopleCards { ...value } />
+          <PeopleCards key={i} { ...value } />
         )
       }
       if (value.gravity) {
         return (
-          <PlanetCards { ...value } />
+          <PlanetCards key={i} { ...value } />
         )
       }
       if (value.cargo_capacity) {
         return (
-          <VehicleCards { ...value } />
+          <VehicleCards key={i} { ...value } />
         )
       }
     })
