@@ -29,15 +29,51 @@ describe('testing CardList', () => {
     expect(wrapper.state().population).toEqual('');
   });
 
-  it(' buttons should have a prop of handleclick', () => {
-    const handleClick = jest.fn();
+  it('should receive props and render ', () => {
+    const wrapper = mount(  <PeopleCards
+                                name='bob'
+                                homeworld='cananda'
+                                species='bro'
+                                language='piglatin'
+                                population='100'/>
+                            )
+    expect(wrapper.props().name).toBe('bob')
+    expect(wrapper.props().homeworld).toBe('cananda')
+    expect(wrapper.props().species).toBe('bro')
+    expect(wrapper.props().population).toBe('100')
+    expect(wrapper.props().language).toBe('piglatin')
+    expect(wrapper.find('PeopleCards').length).toBe(1)
+  });
 
-    const wrapper = mount( <PeopleCards/> );
-    const Button = wrapper.find('button').first();
-    // console.log(button);
-    Button.simulate('click');
+  it('should receive props, update state, and render ', () => {
+    const wrapper = mount(  <PeopleCards
+                                name='bob'
+                                homeworld='canada'
+                                species='bro'
+                                language='piglatin'
+                                population='10'/>
+                            )
+    const mockPeople = {
+        name: 'planet',
+        species: 'kangaroos',
+        population: 100,
+        climate: 'icy',
+        language: 'piglatin',
+        homeworld: 'noob',
+      }
 
+    expect(wrapper.props().name).toBe('bob')
+    expect(wrapper.find('PeopleCards').length).toBe(1)
 
-    expect(handleClick.mock.calls.length).toBe(1);
+    wrapper.setState({
+      homeworld: mockPeople.homeworld,
+      species: mockPeople.species,
+      population: mockPeople.population,
+      language: mockPeople.language
+    });
+
+    expect(wrapper.state().homeworld).toEqual('noob')
+    expect(wrapper.state().species).toEqual('kangaroos')
+    expect(wrapper.state().population).toEqual(100)
   });
 });
