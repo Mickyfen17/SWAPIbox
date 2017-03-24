@@ -7,43 +7,25 @@ import './CardList.css';
 
 const CardList = ({ selectedContent, value, handleFavorites }) => {
 
-  const renderVehicle = (content) => {
-    return content.map((vehicle, i) => {
-      return(
-        <VehicleCards key={i}
-          handleFavorites={ handleFavorites }
-          { ...vehicle } />
-      )
-    })
-  }
-  const renderPeople = (content) => {
-    return content.map((person, i) => {
+  const renderCards = (content, Component) => {
+    return content.map((info, i) => {
       return (
-        <PeopleCards key={i}
+        <Component key={i}
           handleFavorites={ handleFavorites }
-          { ...person } />
-      )
-    })
-  }
-  const renderPlanet = (content) => {
-    return content.map((planet, i) => {
-      return (
-        <PlanetCards key={i}
-          handleFavorites={ handleFavorites }
-          { ...planet } />
+          { ...info } />
       )
     })
   }
 
   const getCards = (content, name) => {
     if (name === 'vehicles') {
-      return renderVehicle(content)
+      return renderCards(content, VehicleCards)
     }
     if (name === 'people') {
-      return renderPeople(content)
+      return renderCards(content, PeopleCards)
     }
     if (name === 'planets') {
-      return renderPlanet(content)
+      return renderCards(content, PlanetCards)
     }
   }
 
