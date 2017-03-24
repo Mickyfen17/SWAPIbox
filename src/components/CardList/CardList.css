@@ -8,6 +8,7 @@
 }
 
 .display-card {
+  position: relative;
   width: 100%;
   height: 480px;
   min-width: 280px;
