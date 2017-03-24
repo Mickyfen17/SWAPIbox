@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-
+import ClassNames from '../ClassNamesHelper';
+const classnames = new ClassNames
 
 class PlanetCards extends Component {
   constructor() {
@@ -35,52 +36,32 @@ class PlanetCards extends Component {
   }
 
   render() {
-
-    this.cardFavorite = classNames({
-      'card-favorite' : this.state.fav || this.props.fav,
-      'display-card' : true
-    }),
-    this.btnFavorite = classNames({
-      'btn-favorite' : this.state.fav,
-      'fav-button' : true
-    })
-    this.cardFavoriteFirst = classNames({
-      'text-favorite' : this.state.fav || this.props.fav,
-      'display-card-text' : true,
-      'first' : true
-    })
-    this.textFavorite = classNames({
-      'text-favorite' : this.state.fav || this.props.fav,
-      'display-card-text' : true
-    })
-    this.textResident = classNames({
-      'text-resedent-favorite' : this.state.fav || this.props.fav,
-      'resident-card-text' : true
-    })
-
     const { name, terrain , population, climate, handleFavorites } = this.props
     const { residents, fav } = this.state
+    const { cardFavorite, btnFavorite, cardFavoriteFirst, textFavorite } = classnames
     const residentList = residents.map((resident, i) => {
       return (
           <h5 key={i} className={ this.textResident }>{ resident }</h5>
       )
     })
+
     return (
-      <article className={ this.cardFavorite }>
+      <article className={ cardFavorite(fav, this.props.fav) }>
         <h2 className='display-card-header' >{ name }
           <button
-            onClick={ () => {this.setState({ fav: !fav });
-                        handleFavorites(name, fav) } }
-            className={ this.btnFavorite }>
+            className={ btnFavorite(fav, this.props.fav) }
+            onClick={ () => {
+              this.setState({ fav: !fav }) ;
+              handleFavorites(name, fav) } } >
           </button>
         </h2>
-        <h4 className={ this.cardFavoriteFirst } >
+        <h4 className={ cardFavoriteFirst(fav, this.props.fav) } >
           <span>Terrain :</span> { terrain }
         </h4>
-        <h4 className={ this.textFavorite } >
+        <h4 className={ textFavorite(fav, this.props.fav) } >
           <span>Population :</span> { population }
         </h4>
-        <h4 className={ this.textFavorite } >
+        <h4 className={ textFavorite(fav, this.props.fav) } >
           <span>Climate :</span> { climate }
         </h4>
         <div className='resident-wrapper'>

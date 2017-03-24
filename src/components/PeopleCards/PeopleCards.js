@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames';
-
+import ClassNames from '../ClassNamesHelper';
+const classnames = new ClassNames
 
 class PeopleCards extends Component {
   constructor() {
@@ -39,46 +40,29 @@ class PeopleCards extends Component {
   }
 
   render() {
-
-    this.cardFavorite = classNames({
-      'card-favorite' : this.state.fav || this.props.fav,
-      'display-card' : true
-    }),
-    this.btnFavorite = classNames({
-      'btn-favorite' : this.state.fav || this.props.fav,
-      'fav-button' : true
-    })
-    this.cardFavoriteFirst = classNames({
-      'text-favorite' : this.state.fav || this.props.fav,
-      'display-card-text' : true,
-      'first' : true
-    })
-    this.textFavorite = classNames({
-      'text-favorite' : this.state.fav || this.props.fav,
-      'display-card-text' : true
-    })
-
     const { name, handleFavorites } = this.props
     const { homeworld, population, species, language, fav } = this.state
+    const { cardFavorite, btnFavorite, cardFavoriteFirst, textFavorite } = classnames
+
     return (
-      <article className={ this.cardFavorite }>
-        <h2 className='display-card-header' >{ name }
-          <button
-            onClick={ () => {this.setState({ fav: !fav });
-                        handleFavorites(name, fav) } }
-            className={ this.btnFavorite }>
-          </button>
-        </h2>
-        <h4 className={ this.cardFavoriteFirst } >
+      <article className={ cardFavorite(fav, this.props.fav) } >
+        <h2 className='display-card-header' > { name } </h2>
+        <button
+          className={ btnFavorite(fav, this.props.fav) }
+          onClick={ () => {
+            this.setState({ fav: !fav }) ;
+            handleFavorites(name, fav) } } >
+        </button>
+        <h4 className={ cardFavoriteFirst(fav, this.props.fav) } >
           <span>Homeworld :</span> { homeworld }
         </h4>
-        <h4 className={ this.textFavorite } >
+        <h4 className={ textFavorite(fav, this.props.fav) } >
           <span>Species :</span> { species }
         </h4>
-        <h4 className={ this.textFavorite } >
+        <h4 className={ textFavorite(fav, this.props.fav) } >
           <span>Language :</span> { language }
         </h4>
-        <h4 className={ this.textFavorite } >
+        <h4 className={ textFavorite(fav, this.props.fav) } >
           <span>Population :</span> { population }
         </h4>
       </article>
