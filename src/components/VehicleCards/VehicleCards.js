@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames';
-import './VehicleCards.css';
-
+import ClassNames from '../ClassNamesHelper';
+const classnames = new ClassNames
 
 class VehicleCards extends Component {
   constructor() {
@@ -12,43 +12,27 @@ class VehicleCards extends Component {
   }
 
   render() {
-
-    this.cardFavorite = classNames({
-      'card-favorite' : this.state.fav || this.props.fav,
-      'display-card' : true
-    }),
-    this.btnFavorite = classNames({
-      'btn-favorite' : this.state.fav || this.props.fav,
-      'fav-button' : true
-    })
-    this.cardFavoriteFirst = classNames({
-      'text-favorite' : this.state.fav || this.props.fav,
-      'display-card-text' : true,
-      'first' : true
-    })
-    this.textFavorite = classNames({
-      'text-favorite' : this.state.fav || this.props.fav,
-      'display-card-text' : true
-    })
-
     const { name, model, vehicle_class, passengers, handleFavorites } = this.props
     const { fav } = this.state
+    const { cardFavorite, btnFavorite, cardFavoriteFirst, textFavorite } = classnames
+
     return (
-      <article className={ this.cardFavorite }>
+      <article className={ cardFavorite(fav, this.props.fav) }>
         <h2 className='display-card-header' >{ name }
           <button
-            onClick={ () => {this.setState({ fav: !fav });
-                        handleFavorites(name, fav) } }
-            className={ this.btnFavorite }>
+            className={ btnFavorite(fav, this.props.fav)  }
+            onClick={ () => {
+              this.setState({ fav: !fav });
+              handleFavorites(name, fav) } } >
           </button>
         </h2>
-        <h4 className={ this.cardFavoriteFirst } >
+        <h4 className={ cardFavoriteFirst(fav, this.props.fav) } >
           <span>Model :</span> { model }
         </h4>
-        <h4 className={ this.textFavorite } >
+        <h4 className={ textFavorite(fav, this.props.fav) } >
           <span>Class :</span> { vehicle_class }
         </h4>
-        <h4 className={ this.textFavorite } >
+        <h4 className={ textFavorite(fav, this.props.fav) } >
           <span>Passengers :</span> { passengers }
         </h4>
       </article>
