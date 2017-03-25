@@ -1,7 +1,7 @@
 import React from 'react';
-import PeopleCards from '../PeopleCards/PeopleCards';
-import VehicleCards from '../VehicleCards/VehicleCards';
-import PlanetCards from '../PlanetCards/PlanetCards';
+import PeopleCard from '../PeopleCard/PeopleCard';
+import VehicleCard from '../VehicleCard/VehicleCard';
+import PlanetCard from '../PlanetCard/PlanetCard';
 import './CardList.css';
 
 
@@ -19,13 +19,13 @@ const CardList = ({ selectedContent, value, handleFavorites }) => {
 
   const getCards = (content, name) => {
     if (name === 'vehicles') {
-      return renderCards(content, VehicleCards)
+      return renderCards(content, VehicleCard)
     }
     if (name === 'people') {
-      return renderCards(content, PeopleCards)
+      return renderCards(content, PeopleCard)
     }
     if (name === 'planets') {
-      return renderCards(content, PlanetCards)
+      return renderCards(content, PlanetCard)
     }
   }
 

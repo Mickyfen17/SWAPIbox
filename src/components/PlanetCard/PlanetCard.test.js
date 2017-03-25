@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import PlanetCards from './PlanetCards';
+import PlanetCard from './PlanetCard';
 
-describe('testing PlanetCards', () => {
+describe('testing PlanetCard', () => {
 
   it('should have a default state', () => {
     const wrapper = mount(
-      <PlanetCards
+      <PlanetCard
         residents={ [] }
         handleFavorites={ () => {} }
       />
@@ -26,7 +26,7 @@ describe('testing PlanetCards', () => {
       handleFavorites: () => {}
     }
     const wrapper = mount(
-      <PlanetCards
+      <PlanetCard
         residents={ ['API call'] }
         { ...mockPlanet }
       />
@@ -44,7 +44,7 @@ describe('testing PlanetCards', () => {
       handleFavorites: () => {}
     }
     const wrapper = mount(
-      <PlanetCards
+      <PlanetCard
         residents={ ['API call'] }
         { ...mockPlanet }
       />
@@ -63,7 +63,7 @@ describe('testing PlanetCards', () => {
       handleFavorites: () => {}
     }
     const wrapper = mount(
-      <PlanetCards
+      <PlanetCard
         residents={ ['API call'] }
         { ...mockPlanet }
       />

@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import VehicleCards from './VehicleCards';
+import VehicleCard from './VehicleCard';
 
-describe('testing VechicleCards', () => {
+describe('testing VehicleCard', () => {
 
   it('should have a default state', () => {
     const wrapper = mount(
-      <VehicleCards
+      <VehicleCard
         handleFavorites ={ () => {} }
       />
     )
@@ -24,7 +24,7 @@ describe('testing VechicleCards', () => {
     handleFavorites: () => {}
   }
     const wrapper = mount(
-      <VehicleCards
+      <VehicleCard
         { ...mockVehicle }
       />
     )
@@ -41,7 +41,7 @@ describe('testing VechicleCards', () => {
     handleFavorites: () => {}
   }
     const wrapper = mount(
-      <VehicleCards
+      <VehicleCard
         { ...mockVehicle }
       />
     )
@@ -59,7 +59,7 @@ describe('testing VechicleCards', () => {
     handleFavorites: () => {}
   }
     const wrapper = mount(
-      <VehicleCards
+      <VehicleCard
         { ...mockVehicle }
       />
     )
@@ -73,5 +73,5 @@ describe('testing VechicleCards', () => {
 
     expect(state.fav).toEqual(true)
   })
-  
+
 })

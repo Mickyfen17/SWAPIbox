@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ClassNames from '../ClassNamesHelper';
 const classnames = new ClassNames
 
-class PeopleCards extends Component {
+class PeopleCard extends Component {
   constructor() {
     super()
     this.state = {
@@ -70,9 +70,9 @@ class PeopleCards extends Component {
   }
 }
 
-PeopleCards.propTypes = {
+PeopleCard.propTypes = {
   homeworld: React.PropTypes.string.isRequired,
   species: React.PropTypes.arrayOf(React.PropTypes.string)
 };
 
-export default PeopleCards;
+export default PeopleCard;
