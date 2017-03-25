@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import OpeningHeader from '../components/OpeningHeader/OpeningHeader'
-import Buttons from '../components/Buttons/Buttons'
+import Button from '../components/Button/Button'
 import CardList from '../components/CardList/CardList'
 import Favorites from '../components/Favorites/Favorites'
 import './App.css';
@@ -33,8 +33,9 @@ class App extends Component {
     })
   }
 
-  handleClick(value) {
-    fetch(`https://swapi.co/api/${value}/`)
+  handleClick(button) {
+    const name = button.name.toLowerCase()
+    fetch(`https://swapi.co/api/${name}/`)
     .then((response) => {
       return response.json()
     })
@@ -42,7 +43,7 @@ class App extends Component {
       this.setState({
         openingCrawl: {},
         selectedContent: json.results,
-        catergory: value,
+        catergory: name,
         toggleFavs: false
       })
     })
@@ -88,7 +89,20 @@ class App extends Component {
           <span> { favorites.length } </span>
         </button>
         <h1 className='main-header'>SWAPI-box</h1>
-        <Buttons handleClick={ this.handleClick } />
+        <div className='buttons-wrapper'>
+          <Button
+            handleClick={ this.handleClick }
+            title='People'
+          />
+          <Button
+            handleClick={ this.handleClick }
+            title='Planets'
+          />
+          <Button
+            handleClick={ this.handleClick }
+            title='Vehicles'
+          />
+        </div>
         <OpeningHeader { ...openingCrawl } />
         { toggleFavs ?
           <Favorites
@@ -99,7 +113,8 @@ class App extends Component {
             selectedContent={ selectedContent }
             value={ catergory }
             handleFavorites={ this.handleFavorites }
-          /> }
+          />
+        }
       </div>
     );
   }
