@@ -23,6 +23,11 @@
   color: black;
 }
 
+.active {
+  background: #f2d83f;
+  color: black;
+}
+
 @media screen and (min-width: 550px) {
   .buttons-wrapper {
     text-align: center;

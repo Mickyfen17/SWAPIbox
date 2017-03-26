@@ -34,9 +34,13 @@ class PeopleCard extends Component {
 
   settingState(json) {
     if(json.gravity) {
-      this.setState({ homeworld: json.name, population: json.population })
+      this.setState({ homeworld: json.name, population: json.population,
+      fav: this.props.fav
+     })
     } else {
-      this.setState({ species: json.name, language: json.language })
+      this.setState({ species: json.name, language: json.language,
+      fav: this.props.fav
+     })
     }
   }
 

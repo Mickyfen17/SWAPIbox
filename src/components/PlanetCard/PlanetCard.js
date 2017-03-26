@@ -34,7 +34,10 @@ class PlanetCard extends Component {
   }
 
   settingState(json) {
-    this.setState({ residents: this.state.residents.concat(json.name) })
+    this.setState({
+      residents: this.state.residents.concat(json.name),
+      fav: this.props.fav
+    })
   }
 
   handleClick() {
