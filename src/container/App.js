@@ -17,6 +17,7 @@ class App extends Component {
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleFavorites= this.handleFavorites.bind(this)
+    this.renderFavorites= this.renderFavorites.bind(this)
   }
 
   componentDidMount() {
@@ -83,11 +84,11 @@ class App extends Component {
     const { openingCrawl, selectedContent, catergory, favorites, toggleFavs } = this.state;
     return (
       <div className="App">
-        <button className='favorite-btn'
-          onClick={ () => this.renderFavorites() }>
-          Favorites
-          <span> { favorites.length } </span>
-        </button>
+        <Button
+          classNames='favorite-btn'
+          handleClick={ this.renderFavorites }
+          title={`Favorites ${ favorites.length }`}
+        />
         <h1 className='main-header'>SWAPI-box</h1>
         <div className='buttons-wrapper'>
           <Button
