@@ -34,8 +34,8 @@ class App extends Component {
   }
 
   handleClick(button) {
-    const name = button.name.toLowerCase()
-    fetch(`https://swapi.co/api/${name}/`)
+    const title = button.title.toLowerCase()
+    fetch(`https://swapi.co/api/${title}/`)
     .then((response) => {
       return response.json()
     })
@@ -43,7 +43,7 @@ class App extends Component {
       this.setState({
         openingCrawl: {},
         selectedContent: json.results,
-        catergory: name,
+        catergory: title,
         toggleFavs: false
       })
     })
@@ -91,14 +91,17 @@ class App extends Component {
         <h1 className='main-header'>SWAPI-box</h1>
         <div className='buttons-wrapper'>
           <Button
+            classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='People'
           />
           <Button
+            classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='Planets'
           />
           <Button
+            classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='Vehicles'
           />
