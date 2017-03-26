@@ -36,19 +36,20 @@ describe('testing Favorites', () => {
       birth_year: '19BBY',
       name: 'Luke Skywalker',
       homeworld: 'API call',
-      species: ['API call'],
-      handleFavorites: () => {}
+      species: ['API call']
     },
     {
       cargo_capacity: '1234 lbs',
       name: 'Skycrawler',
       model: 'abc',
       vehicle_class: 'Aircraft',
-      passengers: '25',
-      handleFavorites: () => {}
+      passengers: '25'
     }]
     const wrapper = mount(
-      <Favorites favorites={ mockFavorite } />
+      <Favorites
+        favorites={ mockFavorite }
+        handleFavorites={ () => {} }
+      />
     )
 
     expect(wrapper.find('.display-card')).toHaveLength(2)

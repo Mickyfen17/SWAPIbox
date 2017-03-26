@@ -1,58 +1,77 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import PeopleCards from './PeopleCards';
+import PeopleCard from './PeopleCard';
 
-describe('testing CardList', () => {
+describe('testing PeopleCard', () => {
 
   it('has a state of fav defaulted false', () => {
-    const wrapper = shallow(<PeopleCards homeworld={ '' } />);
+    const wrapper = shallow(
+      <PeopleCard homeworld={ '' } />
+    );
+
     expect(wrapper.state().fav).toEqual(false);
   });
 
   it('has a state of homeworld defaulted to an empty string', () => {
-    const wrapper = shallow(<PeopleCards homeworld={ '' } />);
+    const wrapper = shallow(
+      <PeopleCard homeworld={ '' } />
+    );
+
     expect(wrapper.state().homeworld).toEqual('');
 });
 
   it('has a state of species defaulted to an empty string', () => {
-    const wrapper = shallow(<PeopleCards homeworld={ '' } />);
+    const wrapper = shallow(
+      <PeopleCard homeworld={ '' } />
+    );
+
     expect(wrapper.state().species).toEqual('');
   });
 
   it('has a state of language defaulted to an empty string', () => {
-    const wrapper = shallow(<PeopleCards homeworld={ '' } />);
+    const wrapper = shallow(
+      <PeopleCard homeworld={ '' } />
+    );
+
     expect(wrapper.state().language).toEqual('');
   });
 
   it('has a state of population defaulted to an empty string', () => {
-    const wrapper = shallow(<PeopleCards homeworld={ '' } />);
+    const wrapper = shallow(
+      <PeopleCard homeworld={ '' } />
+    );
+
     expect(wrapper.state().population).toEqual('');
   });
 
   it('should receive props and render ', () => {
-    const wrapper = mount(  <PeopleCards
-                                name='bob'
-                                homeworld='cananda'
-                                species={[]}
-                                language='piglatin'
-                                population='100'/>
-                            )
+    const wrapper = mount(
+      <PeopleCard
+        name='bob'
+        homeworld='cananda'
+        species={[]}
+        language='piglatin'
+        population='100'
+      />
+    )
     expect(wrapper.props().name).toBe('bob')
     expect(wrapper.props().homeworld).toBe('cananda')
     expect(wrapper.props().species).toEqual([])
     expect(wrapper.props().population).toBe('100')
     expect(wrapper.props().language).toBe('piglatin')
-    expect(wrapper.find('PeopleCards').length).toBe(1)
+    expect(wrapper.find('PeopleCard').length).toBe(1)
   });
 
   it('should receive props, update state, and render ', () => {
-    const wrapper = mount(  <PeopleCards
-                                name='bob'
-                                homeworld='canada'
-                                species={[]}
-                                language='piglatin'
-                                population='10'/>
-                            )
+    const wrapper = mount(
+      <PeopleCard
+        name='bob'
+        homeworld='canada'
+        species={[]}
+        language='piglatin'
+        population='10'
+      />
+    )
     const mockPeople = {
         name: 'planet',
         species: 'kangaroos',
@@ -63,7 +82,7 @@ describe('testing CardList', () => {
       }
 
     expect(wrapper.props().name).toBe('bob')
-    expect(wrapper.find('PeopleCards').length).toBe(1)
+    expect(wrapper.find('PeopleCard').length).toBe(1)
 
     wrapper.setState({
       homeworld: mockPeople.homeworld,

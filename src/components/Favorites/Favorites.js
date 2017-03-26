@@ -1,7 +1,7 @@
 import React from 'react';
-import PeopleCards from '../PeopleCards/PeopleCards';
-import VehicleCards from '../VehicleCards/VehicleCards';
-import PlanetCards from '../PlanetCards/PlanetCards';
+import PeopleCard from '../PeopleCard/PeopleCard';
+import VehicleCard from '../VehicleCard/VehicleCard';
+import PlanetCard from '../PlanetCard/PlanetCard';
 import './Favorites.css';
 
 const Favorites = ({ favorites, handleFavorites }) => {
@@ -15,7 +15,7 @@ const Favorites = ({ favorites, handleFavorites }) => {
     return favorites.map((value, i) => {
       if (value.birth_year) {
         return(
-          <PeopleCards
+          <PeopleCard
             key={i} { ...value }
             handleFavorites={ handleFavorites }
             fav={ true }/>
@@ -23,7 +23,7 @@ const Favorites = ({ favorites, handleFavorites }) => {
       }
       if (value.gravity) {
         return (
-          <PlanetCards
+          <PlanetCard
             key={i} { ...value }
             handleFavorites={ handleFavorites }
             fav={ true }
@@ -32,7 +32,7 @@ const Favorites = ({ favorites, handleFavorites }) => {
       }
       if (value.cargo_capacity) {
         return (
-          <VehicleCards
+          <VehicleCard
             key={i} { ...value }
             handleFavorites={ handleFavorites }
             fav={ true }
