@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '../Button/Button'
 import classNames from 'classnames';
 import ClassNames from '../ClassNamesHelper';
 const classnames = new ClassNames
@@ -10,6 +11,7 @@ class PlanetCard extends Component {
       fav: false,
       residents: [],
     }
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentWillMount(){
@@ -35,6 +37,11 @@ class PlanetCard extends Component {
     this.setState({ residents: this.state.residents.concat(json.name) })
   }
 
+  handleClick() {
+    this.setState({ fav: !this.state.fav })
+    this.props.handleFavorites(this.props.name, this.state.fav)
+  }
+
   render() {
     const { name, terrain , population, climate, handleFavorites } = this.props
     const { residents, fav } = this.state
@@ -48,12 +55,11 @@ class PlanetCard extends Component {
     return (
       <article className={ cardFavorite(fav, this.props.fav) }>
         <h2 className='display-card-header' >{ name }
-          <button
-            className={ btnFavorite(fav, this.props.fav) }
-            onClick={ () => {
-              this.setState({ fav: !fav }) ;
-              handleFavorites(name, fav) } } >
-          </button>
+        <Button
+          classNames={ btnFavorite(fav, this.props.fav) }
+          handleClick={ this.handleClick }
+          title=''
+        />
         </h2>
         <h4 className={ cardFavoriteFirst(fav, this.props.fav) } >
           <span>Terrain :</span> { terrain }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '../Button/Button'
 import classNames from 'classnames';
 import ClassNames from '../ClassNamesHelper';
 const classnames = new ClassNames
@@ -9,6 +10,12 @@ class VehicleCard extends Component {
     this.state = {
       fav: false
     }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.setState({ fav: !this.state.fav })
+    this.props.handleFavorites(this.props.name, this.state.fav)
   }
 
   render() {
@@ -19,12 +26,11 @@ class VehicleCard extends Component {
     return (
       <article className={ cardFavorite(fav, this.props.fav) }>
         <h2 className='display-card-header' >{ name }
-          <button
-            className={ btnFavorite(fav, this.props.fav)  }
-            onClick={ () => {
-              this.setState({ fav: !fav });
-              handleFavorites(name, fav) } } >
-          </button>
+        <Button
+          classNames={ btnFavorite(fav, this.props.fav) }
+          handleClick={ this.handleClick }
+          title=''
+        />
         </h2>
         <h4 className={ cardFavoriteFirst(fav, this.props.fav) } >
           <span>Model :</span> { model }
