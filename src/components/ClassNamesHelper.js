@@ -26,6 +26,11 @@ class ClassNames  {
       'display-card-text' : true
     })
   }
+  residentFavorite(state, props) {
+    return classNames({
+      'text-favorite' : state || props
+    })
+  }
 }
 
 export default ClassNames;

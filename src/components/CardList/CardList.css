@@ -86,23 +86,25 @@
   height: 50px;
   width: 50px;
   background: #E5E5EC url(images/light_saber_green.svg) no-repeat 8px 8px / 30px;
+  transition: all 0.3s ease;
   border: 2px solid #767682;
   border-radius: 25px;
   cursor: pointer;
 }
 
 .fav-button:hover {
+  transform: rotate(-90deg);
   background: #E5E5EC url(images/light_saber_red.svg) no-repeat 8px 8px / 30px;
 }
 
 .card-favorite {
-  background: #5468B1;
+  background: #767682;
 }
-.text-favorite,
-.text-resedent-favorite {
+.text-favorite {
   color: #FFF;
 }
 .btn-favorite {
+  transform: rotate(-90deg);
   background: #E5E5EC url(images/light_saber_red.svg) no-repeat 8px 8px / 30px;
 }
 
