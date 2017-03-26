@@ -13,6 +13,12 @@ class VehicleCard extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  componentWillMount() {
+    this.setState({
+      fav: this.props.fav
+    })
+  }
+
   handleClick() {
     this.setState({ fav: !this.state.fav })
     this.props.handleFavorites(this.props.name, this.state.fav)

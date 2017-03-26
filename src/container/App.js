@@ -13,6 +13,7 @@ class App extends Component {
       selectedContent: [],
       catergory: '',
       favorites: [],
+      favoriteKeys: [],
       toggleFavs: false
     }
     this.handleClick = this.handleClick.bind(this)
@@ -68,14 +69,19 @@ class App extends Component {
     const favorites = this.state.selectedContent.filter(value => {
       return value.name === index;
     })
-    this.setState({ favorites: this.state.favorites.concat(favorites) })
+    this.setState({
+      favorites: this.state.favorites.concat(favorites),
+      favoriteKeys: this.state.favoriteKeys.concat(favorites[0].name),
+    })
   }
 
   removeFavorite(index){
-    const favorites = this.state.favorites.filter(value => {
-      return value.name !== index;
+    const favorites = this.state.favorites.filter(value => value.name !== index)
+    const favoriteKeys = this.state.favoriteKeys.filter(value => value !== index)
+    this.setState({
+      favorites: favorites,
+      favoriteKeys: favoriteKeys
     })
-    this.setState({ favorites: favorites})
   }
 
   renderFavorites() {
@@ -86,7 +92,7 @@ class App extends Component {
   }
 
   render() {
-    const { openingCrawl, selectedContent, catergory, favorites, toggleFavs } = this.state;
+    const { openingCrawl, selectedContent, catergory, favorites, favoriteKeys, toggleFavs } = this.state;
     return (
       <div className="App">
         <Button
@@ -126,8 +132,8 @@ class App extends Component {
             selectedContent={ selectedContent }
             value={ catergory }
             handleFavorites={ this.handleFavorites }
-          />
-        }
+            favoriteKeys={ favoriteKeys }
+          /> }
       </div>
     );
   }

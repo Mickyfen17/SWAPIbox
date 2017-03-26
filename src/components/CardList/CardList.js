@@ -5,14 +5,16 @@ import PlanetCard from '../PlanetCard/PlanetCard';
 import './CardList.css';
 
 
-const CardList = ({ selectedContent, value, handleFavorites }) => {
-
+const CardList = ({ selectedContent, value, handleFavorites, favoriteKeys }) => {
   const renderCards = (content, Component) => {
     return content.map((info, i) => {
+      const isFavorite = favoriteKeys.includes(info.name)
       return (
         <Component key={i}
           handleFavorites={ handleFavorites }
-          { ...info } />
+          { ...info }
+          fav={ isFavorite }
+        />
       )
     })
   }
