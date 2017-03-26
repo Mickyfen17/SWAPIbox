@@ -1,10 +1,11 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({ handleClick, title, classNames }) => {
+const Button = ({ handleClick, title, classNames, active }) => {
+  const activeClass = title.toLowerCase() === active ? 'active' : ''
   return(
     <button
-      className={ classNames }
+      className={ `${classNames} ${activeClass}` }
       onClick={ () => handleClick(title) }>
       { title }
     </button>

@@ -110,16 +110,19 @@ class App extends Component {
             classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='People'
+            active={ catergory }
           />
           <Button
             classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='Planets'
+            active={ catergory }
           />
           <Button
             classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='Vehicles'
+            active={ catergory }
           />
         </div>
         <OpeningHeader { ...openingCrawl } />
