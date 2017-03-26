@@ -21,6 +21,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchOpeningCrawl()
+  }
+
+  fetchOpeningCrawl() {
     fetch('https://swapi.co/api/films/')
     .then((response) => {
       return response.json()
@@ -29,7 +33,8 @@ class App extends Component {
       const index = Math.floor(Math.random() * json.count);
       const { opening_crawl, title, release_date } = json.results[index];
       this.setState({
-        openingCrawl : { opening_crawl, title, release_date }
+        openingCrawl: { opening_crawl, title, release_date },
+        selectedContent: []
       })
     })
   }
@@ -89,7 +94,11 @@ class App extends Component {
           handleClick={ this.renderFavorites }
           title={`Favorites ${ favorites.length }`}
         />
-        <h1 className='main-header'>SWAPI-box</h1>
+        <h1
+          className='main-header'
+          onClick={ () => this.fetchOpeningCrawl() }>
+          SWAPI-box
+        </h1>
         <div className='buttons-wrapper'>
           <Button
             classNames='filter-buttons'
