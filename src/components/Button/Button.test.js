@@ -11,6 +11,8 @@ describe('testing Button', () => {
    ReactDOM.render(
      <Button
        handleClick={ ()=> {} }
+       title=''
+       classNames='filter-buttons'
      />, div);
  });
 
@@ -19,6 +21,7 @@ describe('testing Button', () => {
       <Button
         handleClick={ () => {} }
         title='Planets'
+        classNames='filter-buttons'
       />
     )
     expect(wrapper.props().title).toEqual('Planets')
@@ -29,9 +32,9 @@ describe('testing Button', () => {
       <Button
         handleClick={ () => {} }
         title='People'
+        classNames='filter-buttons'
       />
     )
-
     expect(wrapper.find('.filter-buttons')).toHaveLength(1)
     expect(wrapper.find('.filter-buttons').text()).toEqual('People')
   });
@@ -43,6 +46,7 @@ describe('testing Button', () => {
       <Button
         handleClick={ handleClick }
         title='Vehicles'
+        classNames='filter-buttons'
       />
     );
 

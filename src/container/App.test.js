@@ -28,7 +28,7 @@ describe('testing App', () => {
   })
 
   it('should contain a favorite button', () => {
-    const wrapper = shallow( <App /> )
+    const wrapper = mount( <App /> )
 
     expect(wrapper.find('.favorite-btn')).toHaveLength(1)
   })
