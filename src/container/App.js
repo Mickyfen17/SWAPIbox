@@ -91,14 +91,17 @@ class App extends Component {
         <h1 className='main-header'>SWAPI-box</h1>
         <div className='buttons-wrapper'>
           <Button
+            classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='People'
           />
           <Button
+            classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='Planets'
           />
           <Button
+            classNames='filter-buttons'
             handleClick={ this.handleClick }
             title='Vehicles'
           />
