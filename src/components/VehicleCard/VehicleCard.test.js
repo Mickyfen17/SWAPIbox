@@ -8,6 +8,7 @@ describe('testing VehicleCard', () => {
     const wrapper = mount(
       <VehicleCard
         handleFavorites ={ () => {} }
+        fav={ false }
       />
     )
     const state = wrapper.state();
@@ -61,6 +62,7 @@ describe('testing VehicleCard', () => {
     const wrapper = mount(
       <VehicleCard
         { ...mockVehicle }
+        fav={ false }
       />
     )
     const favButton = wrapper.find('button')
