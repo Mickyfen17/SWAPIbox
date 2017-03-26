@@ -12,7 +12,6 @@ const Button = ({ handleClick, title, classNames, active }) => {
   )
 }
 
-
 Button.propTypes = {
   handleClick: React.PropTypes.func.isRequired,
   title: React.PropTypes.string.isRequired

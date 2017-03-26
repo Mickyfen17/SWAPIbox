@@ -6,6 +6,7 @@ import './CardList.css';
 
 
 const CardList = ({ selectedContent, value, handleFavorites, favoriteKeys }) => {
+
   const renderCards = (content, Component) => {
     return content.map((info, i) => {
       const isFavorite = favoriteKeys.includes(info.name)

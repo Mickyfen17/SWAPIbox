@@ -5,6 +5,7 @@ import PlanetCard from '../PlanetCard/PlanetCard';
 import './Favorites.css';
 
 const Favorites = ({ favorites, handleFavorites }) => {
+  
   if(favorites.length === 0) {
     return(
       <h1 className='no-fav-header'>No Favorites Selected</h1>
