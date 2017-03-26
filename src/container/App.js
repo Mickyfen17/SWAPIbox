@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   handleClick(button) {
-    const title = button.title.toLowerCase()
+    const title = button.toLowerCase()
     fetch(`https://swapi.co/api/${title}/`)
     .then((response) => {
       return response.json()

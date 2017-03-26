@@ -5,7 +5,7 @@ const Button = ({ handleClick, title, classNames }) => {
   return(
     <button
       className={ classNames }
-      onClick={ () => handleClick({ title }) }>
+      onClick={ () => handleClick(title) }>
       { title }
     </button>
   )
