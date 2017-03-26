@@ -18,15 +18,9 @@ const CardList = ({ selectedContent, value, handleFavorites }) => {
   }
 
   const getCards = (content, name) => {
-    if (name === 'vehicles') {
-      return renderCards(content, VehicleCard)
-    }
-    if (name === 'people') {
-      return renderCards(content, PeopleCard)
-    }
-    if (name === 'planets') {
-      return renderCards(content, PlanetCard)
-    }
+    if (name === 'vehicles') return renderCards(content, VehicleCard)
+    if (name === 'people') return renderCards(content, PeopleCard)
+    if (name === 'planets') return renderCards(content, PlanetCard)
   }
 
   return (
