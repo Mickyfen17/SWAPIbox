@@ -1,11 +1,11 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({ handleClick, title }) => {
+const Button = ({ handleClick, title, classNames }) => {
   return(
     <button
-      className='filter-buttons'
-      onClick={() => handleClick({ title }) }>
+      className={ classNames }
+      onClick={ () => handleClick({ title }) }>
       { title }
     </button>
   )
