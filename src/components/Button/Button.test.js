@@ -14,14 +14,26 @@ describe('testing Button', () => {
      />, div);
  });
 
-  it('should contain three buttons', () => {
+  it('should contain a prop which will be the text of the button', () => {
+    const wrapper = mount(
+      <Button
+        handleClick={ () => {} }
+        title='Planets'
+      />
+    )
+    expect(wrapper.props().title).toEqual('Planets')
+  });
+
+  it('should contain render a button with the prop title as the button text', () => {
     const wrapper = shallow(
       <Button
         handleClick={ () => {} }
+        title='People'
       />
     )
 
-    expect(wrapper.find('button')).toHaveLength(3)
+    expect(wrapper.find('.filter-buttons')).toHaveLength(1)
+    expect(wrapper.find('.filter-buttons').text()).toEqual('People')
   });
 
   it(' buttons should have a prop of handleclick', () => {
@@ -30,17 +42,13 @@ describe('testing Button', () => {
     const wrapper = mount(
       <Button
         handleClick={ handleClick }
+        title='Vehicles'
       />
     );
 
-    const BtnOne = wrapper.find('.filter-buttons').first();
-    const BtnTwo = wrapper.find('.filter-buttons').at(1)
-    const BtnThree = wrapper.find('.filter-buttons').last()
-
+    const BtnOne = wrapper.find('.filter-buttons')
     BtnOne.simulate('click');
-    BtnTwo.simulate('click');
-    BtnThree.simulate('click');
 
-    expect(handleClick.mock.calls.length).toBe(3);
+    expect(handleClick.mock.calls.length).toBe(1);
   });
 });
