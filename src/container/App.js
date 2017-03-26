@@ -107,19 +107,19 @@ class App extends Component {
         </h1>
         <div className='buttons-wrapper'>
           <Button
-            classNames='filter-buttons'
+            classNames='filter-buttons people'
             handleClick={ this.handleClick }
             title='People'
             active={ catergory }
           />
           <Button
-            classNames='filter-buttons'
+            classNames='filter-buttons planet'
             handleClick={ this.handleClick }
             title='Planets'
             active={ catergory }
           />
           <Button
-            classNames='filter-buttons'
+            classNames='filter-buttons vehicle'
             handleClick={ this.handleClick }
             title='Vehicles'
             active={ catergory }
