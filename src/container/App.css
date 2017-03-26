@@ -7,7 +7,7 @@
 
 .App {
   min-height: 100vh;
-  background: #191919;
+  background: url(images/star_background.jpg);
   font-family: 'Source Sans Pro', sans-serif;
   padding-bottom: 20px;
 }
@@ -18,7 +18,7 @@
   font-family: 'Poller One', cursive;
   font-size: 2.5em;
   text-align: center;
-  color: #191919;
+  color: #000;
   text-shadow: -1px -1px 0 #f2d83f, 1px -1px 0 #f2d83f, -1px 1px 0 #f2d83f, 1px 1px 0 #f2d83f;
 }
 
@@ -30,11 +30,11 @@
   padding-left: 30px;
   background: transparent;
   color: #f2d83f;
-  border: none;
+  border: 2px solid #000;
   font-weight: 700;
   font-size: 0.8em;
   cursor: pointer;
-  background: #191919 url(images/star.svg) no-repeat 7px 5px / 15px;
+  background: #000 url(images/star.svg) no-repeat 7px 5px / 15px;
 
 }
 
